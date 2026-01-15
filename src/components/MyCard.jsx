@@ -9,6 +9,7 @@ export const MyCard = ({
   description,
   rating,
   name,
+  nemkapcateg,
 }) => {
   return (
     <Paper radius="lg" p="md" className="mycard-paper">
@@ -23,7 +24,7 @@ export const MyCard = ({
       <Box className="mycard-content">
         <Group spacing="xs" align="center">
           <IconBook size={18} color="#a88cff" />
-          <Badge className="mycard-category">{name}</Badge>
+          {!nemkapcateg && <Badge className="mycard-category">{name}</Badge>}
         </Group>
 
         <Text className="mycard-title">{title}</Text>

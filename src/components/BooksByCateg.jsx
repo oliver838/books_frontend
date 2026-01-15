@@ -23,7 +23,7 @@ export const BooksByCateg = () => {
   {isError && <Notification icon={<IconX size={20}/>} color="red" title="Bummer"/>}
 
   {data && data.data.map((book) => (
-    <MyCard key={book.id} {...book} />
+    <MyCard nemkapcateg={true} key={book.id} {...book} />
   ))}
 </div>
 </>

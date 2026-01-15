@@ -213,3 +213,56 @@ a:hover {
   opacity: 0;
   animation: fadeSlideDown 0.8s forwards;
 }
+
+/* ===== FULL SCREEN BACKDROP ===== */
+
+
+/* ===== CENTER PANEL ===== */
+.empty-panel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 22px 26px;
+  max-width: 440px;
+  width: 110%;
+
+  background: rgba(24, 24, 34, 0.95);
+  border-radius: 22px;
+
+  border: 0.5px solid rgba(140, 120, 250, 0.25);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.65),
+    inset 0 0 0.5px rgba(255, 255, 255, 0.05);
+}
+
+/* ===== ICON ===== */
+.empty-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(120, 100, 220, 0.15);
+  border: 1px solid rgba(150, 120, 250, 0.35);
+  color: #b8a9ff;
+}
+
+/* ===== TEXT ===== */
+.empty-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.empty-desc {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #bdb8ff;
+  line-height: 1.4;
+}
