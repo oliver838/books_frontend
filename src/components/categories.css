@@ -1,0 +1,55 @@
+/* categories.css */
+
+/* Alap kártya - glassy, sötét */
+.lux-glass-card {
+  background: rgba(30, 30, 35, 0.85); /* sötét, áttetsző */
+  backdrop-filter: blur(10px); /* frosted glass hatás */
+  border: 1px solid rgba(120, 100, 220, 0.3); /* halvány lilás keret */
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+/* Hover effekt */
+.lux-glass-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(120, 100, 220, 0.4);
+  border-color: rgba(150, 120, 250, 0.5);
+}
+
+/* Ikon konténer - finom lila */
+.lux-glass-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(120, 100, 220, 0.2); /* halvány lilás háttér */
+  border-radius: 50%;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Ikon színe */
+.lux-glass-icon svg {
+  color: #b5aaff;
+  transition: color 0.3s ease;
+}
+
+/* Hover ikon effekt */
+.lux-glass-card:hover .lux-glass-icon {
+  background: rgba(140, 120, 240, 0.3);
+}
+
+.lux-glass-card:hover .lux-glass-icon svg {
+  color: #e0dfff;
+}
+
+/* Szöveg stílus */
+.lux-glass-card .mantine-Text-root {
+  color: #e0e0ff;
+}
+
+.lux-glass-card .mantine-Text-root[ c="dimmed" ] {
+  color: #aaaaff;
+}

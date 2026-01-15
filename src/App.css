@@ -1,159 +1,215 @@
-/* ==============================
-   ROOT DESIGN TOKENS – TECH NEON
-   ============================== */
+/* App.css - Profi Dark Theme */
+@import url('https://fonts.cdnfonts.com/css/clash-display');
 
-:root {
-  --accent-hue: 270;
-  --accent-sat: 85%;
-  --accent-light: 60%;
-
-  --color-accent: hsl(var(--accent-hue), var(--accent-sat), var(--accent-light));
-  --bg-main: #121e3f;
-  --bg-elevated: rgba(20,22,30,0.75);
-  --glass-blur: blur(20px);
-  --border-subtle: rgba(255,255,255,0.08);
-  --radius-md: 16px;
-  --transition-base: 0.35s cubic-bezier(0.4,0,0.2,1);
-}
-
-[data-theme="light"] {
-  --bg-main: #e0e5f5;
-  --bg-elevated: rgba(255,255,255,0.85);
-  --border-subtle: rgba(0,0,0,0.06);
-  --color-accent: hsl(var(--accent-hue), var(--accent-sat), 50%);
-}
-
-/* ==============================
-   DARK MODE TOKENS – TECH NEON
-   ============================== */
-
-[data-theme="dark"] {
-  --bg-main: #212122;
-  --bg-elevated: rgba(14, 18, 34, 0.8);
-
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-
-  --border-subtle: rgba(255, 255, 255, 0.08);
-
-  --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.55);
-  --shadow-md: 0 28px 90px rgba(0, 0, 0, 0.75);
-
-  --shadow-neon-sm: 0 10px 36px rgba(80, 160, 255, 0.45);
-  --shadow-neon-md: 0 30px 100px rgba(80, 160, 255, 0.7);
-}
-
-/* ==============================
-   GLOBAL RESET & BASE
-   ============================== */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
+/* ===== Alap body stílus ===== */
+/* App background - modern subtle gradient */
+body, html {
   margin: 0;
   padding: 0;
-  transition:
-    background-color var(--transition-base),
-    color var(--transition-base),
-    border-color var(--transition-base),
-    box-shadow var(--transition-base);
+  font-family: 'Inter', 'Arial', sans-serif;
+  background: linear-gradient(135deg, #160f1a 0%, #161829 50%, #1e1c2d 100%);
+  color: #e0e0e0;
+  scroll-behavior: smooth;
 }
 
-html,
-body {
-  height: 100%;
-}
-
-body {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-
-  line-height: 1.6;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ==============================
-   SELECTION & LINKS
-   ============================== */
-
-::selection {
-  background: var(--color-accent);
-  color: #ffffff;
-}
-
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-}
-/* ==============================
-   TECH NEON GLOBAL STYLING
-   ============================== */
-
-/* body theme switch */
-body[data-theme="light"] {
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-}
-
-body[data-theme="dark"] {
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-}
-
-/* TopBar neon */
-.topbar {
-  height: 60px;
-  padding: 0 1rem;
+/* Alternatíva: kicsit lilás/kékes árnyalatokkal */
+.app-root {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
 
-  background: var(--bg-elevated);
-  backdrop-filter: var(--glass-blur);
-  border-bottom: 1px solid var(--border-subtle);
-
-  /* neon glow */
-  box-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent);
-  transition: all 0.35s ease;
+  /* deep background */
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(71, 60, 129, 0.027),
+      rgba(15, 10, 30, 0.9) 60%
+    ),
+    linear-gradient(
+      135deg,
+      #06081a,
+      #1a1446,
+      #12091f
+    );
 }
 
-.topbar-text {
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: var(--color-accent);
-  text-shadow: 0 0 4px var(--color-accent), 0 0 8px var(--color-accent);
+
+/* ===== Page Header ===== */
+.page-header {
+
+  width: 100%;
+  text-align: center;
+  height: 45px;
+  margin-bottom: 1rem;
+}
+.page-title {
+  position: absolute; /* absolute helyett, hogy reszponzív legyen */
+    font-family: 'Satoshi', sans-serif;
+  top: 20px;
+  right: 0;
+  left: 0;
+  font-size: 2.5rem !important;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 3.5px;
+  margin: 1rem 0;
+  color: #e0e0ff; /* enyhén lilás-fehér */
+  
+  /* finom gradient szín az átmenethez */
+  background: linear-gradient(90deg, #0e253f, #ebc7c9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* finom árnyék a kiemeléshez */
+  text-shadow: 0 2px 8px rgba(100, 80, 220, 0.4);
+
+  /* animáció - lassú, finom fade/slide hatás */
+  opacity: 0;
+  animation: fadeSlideDown 0.8s forwards;
 }
 
-.topbar-button {
-  font-size: 1.5rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-  color: var(--color-accent);
-  text-shadow: 0 0 4px var(--color-accent), 0 0 8px var(--color-accent);
-  transition: 0.2s;
+/* animáció */
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.topbar-button:hover {
-  text-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent), 0 0 24px var(--color-accent);
+/* reszponzív */
+@media (max-width: 520px) {
+  .page-title {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
 }
 
-/* Paper / Card neon */
-.paper-neon {
-  background: var(--bg-elevated);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent);
-  padding: 1rem 2rem;
-  border-radius: var(--radius-md);
-  transition: all var(--transition-base);
+/* ===== Main Paper Card ===== */
+.main-card {
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem;
+  background-color: #1b1c2a; /* kártya sötét */
+  border: 1px solid #2c2e3e;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
+/* Hover effekt a kártyán */
+.main-card:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+}
+
+/* ===== Mantine Paper/Components Dark Theme Override ===== */
+.mantine-Paper-root {
+  background-color: #1b1c2a !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #2c2e3e;
+}
+
+.mantine-Button-root {
+  background-color: #2e2f42;
+  color: #e0e0e0;
+  border: 1px solid #3a3c55;
+  transition: all 0.2s;
+}
+
+.mantine-Button-root:hover {
+  background-color: #3a3c55;
+}
+
+/* ===== Links ===== */
+a {
+  color: #81a1c1;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #88c0d0;
+  text-decoration: underline;
+}
+
+/* ===== Scrollbar Dark ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1b1c2a;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #44475a;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6272a4;
+}
+
+/* ===== Responsive adjustments ===== */
+@media (max-width: 520px) {
+  .app-root {
+    padding: 1rem;
+  }
+
+  .main-card {
+    padding: 1rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .header-underline {
+    width: 50px;
+    height: 3px;
+  }
+}
+.books-grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+
+.categ-title{
+  position: absolute; /* absolute helyett, hogy reszponzív legyen */
+    font-family: 'Satoshi', sans-serif;
+  top: 80px;
+  right: 0;
+  left: 0;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  text-align: center;
+  letter-spacing: 3.5px;
+  margin: 1rem 0;
+  color: #e0e0ff; /* enyhén lilás-fehér */
+  
+  /* finom gradient szín az átmenethez */
+  background: linear-gradient(90deg, #5a5a5a, #b4b4b4be);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* finom árnyék a kiemeléshez */
+  text-shadow: 0 2px 8px rgba(100, 80, 220, 0.4);
+
+  /* animáció - lassú, finom fade/slide hatás */
+  opacity: 0;
+  animation: fadeSlideDown 0.8s forwards;
+}

@@ -1,0 +1,126 @@
+/* MyMenuGlassDark.css */
+
+/* Dropdown alap - modern glass effekt */
+.mantine-Menu-dropdown {
+  background: rgba(30, 30, 35, 0.85); /* sötét, enyhén áttetsző */
+  backdrop-filter: blur(8px);          /* frosted glass hatás */
+  border: 1px solid rgba(100, 80, 200, 0.3); /* halvány lilás szegély */
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  color: #e0e0ff; /* világos szöveg */
+  min-width: 220px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Button - letisztult, sötét */
+.mantine-Button-root {
+  background: rgba(50, 45, 60, 0.8); /* sötét, enyhén átlátszó */
+  color: #e0e0ff;
+  border: 1px solid rgba(120, 100, 200, 0.4); /* halvány lilás keret */
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+.mantine-Button-root:hover {
+  background: rgba(60, 50, 80, 0.9); /* finom hover */
+  border-color: rgba(140, 120, 220, 0.5);
+}
+
+/* Menüelem - egyszerű, modern */
+.mantine-Menu-item {
+  color: #e0e0ff;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.mantine-Menu-item:hover {
+  background: rgba(120, 100, 220, 0.2); /* lilás glass hover */
+}
+
+/* Menü ikon - finom lilás árnyalat */
+.mantine-Menu-item-leftSection svg {
+  color: #b5aaff;
+  transition: color 0.3s ease;
+}
+
+.mantine-Menu-item:hover .mantine-Menu-item-leftSection svg {
+  color: #d0c0ff;
+}
+/* ===== SEARCH INPUT (DARK GLASS) ===== */
+.menu-search .mantine-TextInput-input {
+  background: rgba(20, 20, 30, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(120, 100, 220, 0.35);
+  border-radius: 8px;
+
+  color: #e0e0ff;
+  font-size: 0.9rem;
+
+  transition:
+    border 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.menu-search .mantine-TextInput-input::placeholder {
+  color: rgba(200, 190, 255, 0.5);
+}
+
+/* Hover */
+.menu-search .mantine-TextInput-input:hover {
+  border-color: rgba(150, 130, 255, 0.5);
+}
+
+/* Focus */
+.menu-search .mantine-TextInput-input:focus {
+  background: rgba(25, 25, 40, 0.9);
+  border-color: rgba(170, 150, 255, 0.8);
+  box-shadow: 0 0 0 1px rgba(170, 150, 255, 0.4);
+}
+
+/* ===== SEARCH ICON ===== */
+.menu-search-icon {
+  color: #b5aaff;
+  cursor: pointer;
+  transition: color 0.25s ease, transform 0.15s ease;
+}
+
+.menu-search-icon:hover {
+  color: #e0d4ff;
+  transform: scale(1.1);
+}
+.menu-logo {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: #e8e4ff;
+  padding: 0.75rem 0;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+
+  border-bottom: 1px solid rgba(140, 120, 255, 0.25);
+}
+
+.menu-logo:hover {
+  color: #ffffff;
+}
+.menu-item-glass {
+  border-radius: 8px;
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.15s ease;
+}
+
+.menu-item-glass:hover {
+  background: rgba(120, 100, 220, 0.22);
+  box-shadow:
+    0 0 0 1px rgba(150, 130, 255, 0.35),
+    inset 0 0 12px rgba(150, 130, 255, 0.2);
+  transform: translateX(3px);
+}

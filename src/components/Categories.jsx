@@ -1,34 +1,57 @@
-import React from "react";
 import { useQuery } from "react-query";
 import { getCategories } from "../utils";
-import { Box, Loader, Notification, Paper, Text } from "@mantine/core";
-
-import '@mantine/core/styles.css';
+import {
+  Loader,
+  Notification,
+  Paper,
+  Text,
+  SimpleGrid,
+  Group,
+  Box,
+  Title,
+} from "@mantine/core";
+import { IconBook, IconX } from "@tabler/icons-react";
+import "./categories.css";
+import { useNavigate } from "react-router-dom";
 export const Categories = () => {
-  const { isLoading, status, data, error, isError } = useQuery({
+  
+  const navigate = useNavigate()
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ["categories"],
     queryFn: getCategories,
   });
-  data && console.log(data);
-  isLoading && console.log(status);
-
-  isError && console.log(error);
+  const xIcon = <xIcon size={20}/>
+  if (isLoading) return <Loader size="lg" />;
+  if (isError)
+    return (
+      <Notification icon={<IconX />} color="red" title="Hiba">
+        {error.message}
+      </Notification>
+    );
 
   return (
-    <>
-      {isLoading && <Loader color="blue" />}
-      {isError && (
-        <Notification icon={xIcon} color="red" title="Bummer!">
-          {error.message}
-        </Notification>
-      )}
-      {data && data.data.map(obj=>
-        <Box key={obj.id} >
-          <Paper shadow="lg" withBorder p="xl" radius="md" style={{width:"300px"}}>
-            <Text style={{textAlign:"center"}}>{obj.name}</Text>
-          </Paper>
-        </Box>
-      )}
-    </>
+        <Paper className="main-card" radius="xl">
+    <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing={32}>
+      {isLoading && <Loader color="blue"/>}
+      {isError && <Notification icon={xIcon} color="red" title="Bummer"/>}
+      {data.data.map((cat) => (
+        <Paper key={cat.id} radius="xl" p="xl" onClick={()=>navigate("/books/categ/"+cat.id)} className="lux-glass-card">
+          <Group align="flex-start" gap="md">
+            <Box className="lux-glass-icon">
+              <IconBook size={22} />
+            </Box>
+
+            <Box>
+              <Text fz="lg" fw={600} >
+                {cat.name}
+              </Text>
+              <Text fz="sm" c="dimmed" mt={4}>
+                Böngészés kategóriában
+              </Text>
+            </Box>
+          </Group>
+            </Paper>
+      ))}
+    </SimpleGrid></Paper>
   );
 };
