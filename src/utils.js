@@ -21,3 +21,7 @@ export const getAllBooks = async()=>{
     const response = await axios.get(baseUrl)
     return response
 }
+export const addNewBook = async(newBook)=>{
+    const response = await axios.post(baseUrl, newBook)
+    return response.data
+}

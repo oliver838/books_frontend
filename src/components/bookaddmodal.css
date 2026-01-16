@@ -1,0 +1,49 @@
+/* Alap modal - glassy sötét */
+.lux-glass-cardd {
+  background: rgba(30, 30, 35, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(120, 100, 220, 0.3);
+  color: #e0e0ff;
+}
+
+/* Header ikon */
+.lux-glass-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(120, 100, 220, 0.2);
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+.lux-glass-icon svg { color: #b5aaff; }
+
+/* Close icon */
+.lux-glass-iconn svg { color: #fff; }
+
+/* Inputok sötét stílus */
+.lux-glass-cardd .mantine-Input-input,
+.lux-glass-cardd .mantine-Textarea-root textarea,
+.lux-glass-cardd .mantine-NumberInput-input {
+  background: rgba(20, 20, 25, 0.6);
+  border: 1px solid rgba(120, 100, 220, 0.3);
+  color: #ffffff;
+}
+.lux-glass-cardd .mantine-Input-wrapper label,
+.lux-glass-cardd .mantine-Textarea-label,
+.lux-glass-cardd .mantine-NumberInput-label {
+  color: #cfcaff;
+}
+
+/* Button stílus */
+.lux-glass-cardd .mantine-Button-root {
+  background: linear-gradient(135deg, #7b6cff, #9a8cff);
+  border: none;
+  color: #fff;
+}
+.lux-glass-cardd .mantine-Button-root:hover {
+  background: linear-gradient(135deg, #8d7fff, #b2a5ff);
+}

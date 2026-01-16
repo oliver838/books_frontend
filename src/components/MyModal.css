@@ -1,0 +1,48 @@
+
+.lux-glass-iconn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.lux-glass-iconn svg {
+  color: #b5aaff;
+  transition: color 0.3s ease;
+}
+[data-mantine-color-scheme='light'] .m_6c018570[data-variant='default'] {
+
+      --input-bd: transparent !important;
+  --input-bg: transparent !important;
+  --input-bd-focus: transparent !important;
+}
+
+.password-input input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  color: #e0e0ff; /* világos szöveg */
+  background: rgba(30, 30, 35, 0.85); /* sötét, áttetsző */
+  border: 1px solid rgba(120, 100, 220, 0.3); /* halvány lilás keret */
+  border-radius: 12px;
+  backdrop-filter: blur(8px); /* frosted glass hatás */
+  transition: all 0.3s ease;
+}
+
+.password-input input::placeholder {
+  color: #b0aaff88; /* halvány lila placeholder */
+}
+
+.password-input input:focus {
+  outline: none;
+  border-color: #8c78f0; /* fókusz lilás keret */
+  box-shadow: 0 0 8px rgba(140, 120, 240, 0.5);
+  background: rgba(30, 30, 35, 0.95); /* fókuszban kicsit világosabb */
+}
+
+.password-input input:hover {
+  border-color: rgba(150, 120, 250, 0.5);
+}

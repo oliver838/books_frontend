@@ -1,0 +1,62 @@
+
+/* Fejléc */
+.mantine-Table-root thead th {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg, #007bff, #00bfff);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  padding: 14px 12px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  z-index: 10;
+  box-sizing: border-box;
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+/* Cellák */
+.mantine-Table-root td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  white-space: nowrap;
+  color: #ddd;
+  transition: background-color 0.2s ease;
+}
+
+/* Sorok hover */
+.mantine-Table-root tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.15);
+  cursor: pointer;
+  transform: translateX(2px);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Táblázat alatti szöveg */
+.mantine-Table-root caption {
+  caption-side: bottom;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  color: #999;
+  text-align: right;
+  user-select: none;
+}
+
+/* Loader középre */
+.mantine-Loader-root {
+  display: block;
+  margin: 40px auto;
+}
+
+/* Notification középre */
+.mantine-Notification-root {
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Cím */

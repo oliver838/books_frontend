@@ -5,72 +5,81 @@ import { useState } from "react";
 import "./MyMenu.css";
 import { IconCategory } from "@tabler/icons-react";
 import { IconBooks } from "@tabler/icons-react";
+import { MyModal } from "./components/MyModal";
+import { IconKey } from "@tabler/icons-react";
+import { useDisclosure } from "@mantine/hooks";
 
-export const MyMenu = () => {
+export const MyMenu = ({ setIsAdmin }) => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
-  const [opened, setOpened] = useState(false);
-const handleClick = ()=>{
-    
-    setOpened((o) => !o)
-    navigate("books/search/" + value)
+  const [menuOpened, setMenuOpened] = useState(false);
+
+  const [modalOpened, { open, close }] = useDisclosure(false);
+
+  const handleClick = () => {
+    setOpened((o) => !o);
+    navigate("books/search/" + value);
     setTimeout(() => {
-        
-    setValue("")
+      setValue("");
     }, 150);
-}
+  };
   return (
-    <Menu opened={opened} onChange={setOpened} position="bottom-end">
-      <Menu.Target>
-        <div className="burger-glass">
+    <>
+      <Menu opened={menuOpened} onChange={setMenuOpened} position="bottom-end">
+        <Menu.Target>
           <Burger
-            opened={opened}
-            onClick={() => setOpened((o) => !o)}
+            opened={menuOpened}
+            onClick={() => setMenuOpened((o) => !o)}
             size="md"
             color="#fff"
           />
-        </div>
-      </Menu.Target>
+        </Menu.Target>
 
-      <Menu.Dropdown className="menu-glass">
-        {/* ===== LOGO ===== */}
-        <div className="menu-logo" onClick={() => navigate("/")}>
-          📚 Könyvtár
-        </div>
+        <Menu.Dropdown className="menu-glass">
+          {/* ===== LOGO ===== */}
+          <div className="menu-logo" onClick={() => navigate("/")}>
+            📚 Könyvtár
+          </div>
 
-        {/* ===== MENU ITEMS ===== */}
-      <Menu.Item
-          className="menu-item-glass"
-          leftSection={<IconCategory size={18} />}
-          onClick={() => navigate("/")}
-        >
-          Kategóriák
-        </Menu.Item>
+          {/* ===== MENU ITEMS ===== */}
+          <Menu.Item
+            className="menu-item-glass"
+            leftSection={<IconCategory size={18} />}
+            onClick={() => navigate("/")}
+          >
+            Kategóriák
+          </Menu.Item>
 
-        <Menu.Item
-          className="menu-item-glass"
-          leftSection={<IconBooks size={18} />}
-          onClick={() => navigate("/books")}
-        >
-          Összes könyv
-        </Menu.Item>
+          <Menu.Item
+            className="menu-item-glass"
+            leftSection={<IconBooks size={18} />}
+            onClick={() => navigate("/books")}
+          >
+            Összes könyv
+          </Menu.Item>
 
+          <Menu.Item leftSection={<IconKey size={18} />} onClick={open}>
+            Admin modal megnyitása
+          </Menu.Item>
 
-        {/* ===== SEARCH ===== */}
-        <TextInput
-          className="menu-search"
-          value={value}
-          onChange={(e) => setValue(e.currentTarget.value)}
-          placeholder="Keresés a címben..."
-          leftSection={
-            <IconSearch
-              size={14}
-              className="menu-search-icon"
-              onClick={handleClick}
-            />
-          }
-        />
-      </Menu.Dropdown>
-    </Menu>
+          {/* ===== SEARCH ===== */}
+          <TextInput
+            className="menu-search"
+            value={value}
+            onChange={(e) => setValue(e.currentTarget.value)}
+            placeholder="Keresés a címben..."
+            leftSection={
+              <IconSearch
+                size={14}
+                className="menu-search-icon"
+                onClick={handleClick}
+              />
+            }
+          />
+        </Menu.Dropdown>
+      </Menu>
+
+      <MyModal setIsAdmin={setIsAdmin} opened={modalOpened} close={close} />
+    </>
   );
 };
